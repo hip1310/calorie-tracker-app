@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (request, context) => {
-  const requestOrigin = request.headers.referer
+  const domain = (new URL(request.url))
+  const requestOrigin = domain.protocol + '://' + domain.hostname + '/'
   console.log('**** EDGE FUNC LOGS ****')
   console.log(request)
   console.log(requestOrigin)
